@@ -1,3 +1,5 @@
+// CHECKOUT/STRIPE LOGIC DISABLED: All Stripe and checkout logic is commented out as per request.
+/*
 'use client';
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 import * as dayjs from "dayjs";
@@ -12,6 +14,7 @@ import { set_shipping } from "@/redux/features/order/orderSlice";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import {useCreatePaymentIntentMutation,useSaveOrderMutation} from "@/redux/features/order/orderApi";
 
+// Main useCheckoutSubmit hook
 const useCheckoutSubmit = () => {
   // addOrder
   const [saveOrder] = useSaveOrderMutation();
@@ -269,3 +272,4 @@ const useCheckoutSubmit = () => {
 };
 
 export default useCheckoutSubmit;
+*/
