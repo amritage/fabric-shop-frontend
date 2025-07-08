@@ -1,8 +1,8 @@
-// File: src/app/layout.jsx
-
 import './globals.scss';
 import { Jost } from 'next/font/google';
 import Providers from '../components/provider';
+import GoogleAnalytics from '../components/analytics/GoogleAnalytics';
+import MicrosoftClarity from '../components/analytics/MicrosoftClarity';
 
 export const metadata = {
   title: 'Shofy - e-Commerce Next js Template',
@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const jost = Jost({
-  weight: ["300","400","500","600","700","800","900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--tp-ff-body",
 });
@@ -18,6 +18,10 @@ const jost = Jost({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={jost.variable}>
+      <head>
+        <GoogleAnalytics />
+        <MicrosoftClarity />
+      </head>
       <body className={jost.className}>
         <Providers>
           {children}
