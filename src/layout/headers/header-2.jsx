@@ -120,7 +120,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                 <div className="row align-items-center">
                   <div className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
                     <div className="logo">
-                      <Link href="/">
+                      <Link href="/home-2">
                         <Image
                           src={logo}
                           alt="logo"
