@@ -38,7 +38,13 @@ const nextConfig = {
     NEXT_PUBLIC_API_BASE_URL: "https://adorable-gentleness-production.up.railway.app/api",
   },
   async redirects() {
-    return [];
+    return [
+      {
+        source: '/home-2',
+        destination: '/',
+        permanent: true,
+      },
+    ];
   },
 };
 
