@@ -15,6 +15,7 @@ export const apiSlice = createApi({
           }
         } catch (error) {
           console.error('Error parsing user info:', error);
+          Cookies.remove('userInfo'); // Automatically clear the invalid cookie
         }
       }
       return headers;
