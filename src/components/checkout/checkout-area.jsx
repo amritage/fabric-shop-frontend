@@ -29,13 +29,13 @@ const CheckoutArea = () => {
   const { cart_products } = useSelector((state) => state.cart);
   return (
     <>
-      {/* Checkout section layout */}
+      // Checkout section layout
       <section
         className="tp-checkout-area pb-120"
         style={{ backgroundColor: "#EFF1F5" }}
       >
         <div className="container">
-          {/* If cart is empty */}
+          // If cart is empty
           {cart_products.length === 0 && (
             <div className="text-center pt-50">
               <h3 className="py-2">No items found in cart to checkout</h3>
@@ -44,7 +44,7 @@ const CheckoutArea = () => {
               </Link>
             </div>
           )}
-          {/* If cart has products */}
+          // If cart has products
           {cart_products.length > 0 && (
             <div className="row">
               <div className="col-xl-7 col-lg-7">
