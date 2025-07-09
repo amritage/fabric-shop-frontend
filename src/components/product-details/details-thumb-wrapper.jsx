@@ -14,10 +14,6 @@ const DetailsThumbWrapper = ({
 }) => {
   const [isVideoActive, setIsVideoActive] = useState(false);
 
-  // Log videoId and isVideoActive for debugging
-  console.log('videoId in DetailsThumbWrapper:', videoId);
-  console.log('isVideoActive:', isVideoActive);
-
   return (
     <>
       <div className="tp-product-details-thumb-wrapper tp-tab d-sm-flex">

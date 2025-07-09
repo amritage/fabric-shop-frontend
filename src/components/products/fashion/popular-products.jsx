@@ -104,9 +104,7 @@ const PopularProducts = () => {
         className="tp-category-slider-active-2 swiper-container mb-50"
       >
         {product_items.map((item) => {
-          const imageUrl = getFixedImageUrl(item.image);
-          console.log('Popular Product:', item.name, 'Image URL:', imageUrl);
-          
+          const imageUrl = getFixedImageUrl(item.image);          
           return (
             <SwiperSlide
               key={item._id}

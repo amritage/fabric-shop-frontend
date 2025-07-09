@@ -20,7 +20,6 @@ const GoogleSignUp = () => {
           notifySuccess("Login success!");
           router.push('/checkout');
         } else {
-          console.log("result error -->", res.error);
           notifyError(res.error?.message);
         }
       });

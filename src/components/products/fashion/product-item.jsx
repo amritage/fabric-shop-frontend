@@ -12,8 +12,6 @@ import { add_to_wishlist } from '@/redux/features/wishlist-slice';
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   
-  // Debug log
-  console.log('Product data:', product);
   
   // handle add product
   const handleAddProduct = (prd) => {
