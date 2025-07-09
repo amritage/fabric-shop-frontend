@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import React from "react";
 import { Rating } from "react-simple-star-rating";
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const ReviewItem = ({ review }) => {
   const { comment, createdAt, rating, userId } = review || {};

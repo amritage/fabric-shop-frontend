@@ -28,7 +28,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
 
   return (
     <div className="tp-checkout-place white-bg">
-      {/* Order summary and payment options (commented out) */}
+      // Order summary and payment options (commented out)
     </div>
   );
 };
