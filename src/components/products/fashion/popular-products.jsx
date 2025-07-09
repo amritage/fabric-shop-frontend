@@ -65,7 +65,11 @@ function getFixedImageUrl(url) {
   }
   // For any other case, try to construct the URL
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  return `${baseUrl}`;
+  // If url is not a valid path, return fallback image
+  if (!url || url === baseUrl) {
+    return '/assets/img/product/product-1.jpg';
+  }
+  return `${baseUrl}/${url.replace(/^\/+/, '')}`;
 }
 
 const PopularProducts = () => {

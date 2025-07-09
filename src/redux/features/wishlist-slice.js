@@ -27,7 +27,6 @@ export const wishlistSlice = createSlice({
       state.wishlist = state.wishlist.filter((item) => item._id !== payload.id);
       notifyError(`${payload.title} removed from wishlist`);
       setLocalStorage("wishlist_items", state.wishlist);
-      notifyError(`${payload.title} removed from wishlist`);
     },
     // eslint-disable-next-line no-unused-vars
     get_wishlist_products: (state, { payload: _payload }) => {
