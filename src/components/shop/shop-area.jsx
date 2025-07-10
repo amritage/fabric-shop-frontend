@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from 'next/navigation';
 import ShopLoader from "../loader/shop/shop-loader";
 import ErrorMsg from "../common/error-msg";
@@ -113,21 +113,9 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
   };
 
   // Filtering and rendering logic (same as before)
-  let content = null;
-  if (isLoading) {
-    content = <ShopLoader loading={isLoading} />;
-  }
-  if (!isLoading && isError) {
-    content = <div className="pb-80 text-center">
-      <ErrorMsg msg="There was an error" />
-    </div>;
-  }
-  if (!isLoading && !isError && products?.data?.length === 0) {
-    content = <ErrorMsg msg="No Products found!" />;
-  }
-  if (!isLoading && !isError && products?.data?.length > 0) {
+  const filteredProducts = useMemo(() => {
+    if (isLoading || isError || !products?.data) return [];
     let product_items = products.data;
-    // Client-side filtering for category, color, etc.
     const activeFilters = Object.entries(selectedFilters).filter(([, values]) => values.length > 0);
     if (activeFilters.length > 0) {
       product_items = product_items.filter((product) => {
@@ -222,6 +210,23 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
       product_items = product_items.filter((p) => Number(p.salesPrice) >= Number(minPrice) && 
       Number(p.salesPrice) <= Number(maxPrice))
     }
+    return product_items;
+  }, [isLoading, isError, products, selectedFilters, selectValue, category, filterColor, filterStructure]);
+
+  let content = null;
+  if (isLoading) {
+    content = <ShopLoader loading={isLoading} />;
+  }
+  if (!isLoading && isError) {
+    content = <div className="pb-80 text-center">
+      <ErrorMsg msg="There was an error" />
+    </div>;
+  }
+  if (!isLoading && !isError && filteredProducts.length === 0) {
+    content = <ErrorMsg msg="No Products found!" />;
+  }
+  if (!isLoading && !isError && filteredProducts.length > 0) {
+    let product_items = filteredProducts;
     content = (
       <>
         {hidden_sidebar ? (

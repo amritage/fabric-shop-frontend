@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from 'next/navigation';
@@ -30,6 +30,20 @@ const ColorFilter = ({setCurrPage,shop_right=false}) => {
   // decide what to render
   let content = null;
 
+  // Optimize unique color extraction
+  const uniqueColors = useMemo(() => {
+    if (!products?.data) return [];
+    const colorMap = new Map();
+    products.data.forEach(product => {
+      product.imageURLs.forEach(item => {
+        if (item?.color && !colorMap.has(item.color.name)) {
+          colorMap.set(item.color.name, item.color);
+        }
+      });
+    });
+    return Array.from(colorMap.values());
+  }, [products]);
+
   if (isLoading) {
     content = <ShopColorLoader loading={isLoading}/>;
   }
@@ -41,15 +55,6 @@ const ColorFilter = ({setCurrPage,shop_right=false}) => {
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
-    let allColor = [];
-    product_items.forEach((product) => {
-      let uniqueColor = new Set(product.imageURLs.map((item) => item?.color));
-      allColor = [...new Set([...allColor, ...uniqueColor])];
-    });
-
-    let uniqueColors = [
-      ...new Map(allColor.map((color) => [color?.name, color])).values(),
-    ];
     content = uniqueColors.map((item, i) => {
       if (item) {
         return (

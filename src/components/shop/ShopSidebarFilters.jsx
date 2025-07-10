@@ -29,8 +29,10 @@ const ShopSidebarFilters = ({ onFilterChange, selected }) => {
   const handleAccordion = async (key, api) => {
     setOpenKey(key === openKey ? null : key);
     if (!options[key]) {
+      if (!options._fetched) options._fetched = {};
+      if (options._fetched[key]) return; // already fetched
       const opts = await fetchOptions(api);
-      setOptions((prev) => ({ ...prev, [key]: opts }));
+      setOptions((prev) => ({ ...prev, [key]: opts, _fetched: { ...prev._fetched, [key]: true } }));
     }
   };
 

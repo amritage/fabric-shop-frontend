@@ -32,8 +32,8 @@ const HeaderFour = () => {
                 <div className="col-xl-2 col-lg-2 col-6">
                   <div className="logo">
                     <Link href="/">
-                      <Image className="logo-light" src={logo_white} alt="logo" />
-                      <Image className="logo-dark" src={logo_dark} alt="logo" />
+                      <Image className="logo-light" src={logo_white} alt="logo" width={120} height={40} />
+                      <Image className="logo-dark" src={logo_dark} alt="logo" width={120} height={40} />
                     </Link>
                   </div>
                 </div>
