@@ -11,10 +11,7 @@ export const orderSlice = createSlice({
   reducers: {
     set_shipping: (state, { payload }) => {
       state.shipping_info = payload;
-      localStorage.setItem(
-        "shipping_info",
-        JSON.stringify(payload)
-      );
+      // Ensure no direct localStorage access in reducers. Move any such logic to thunks or effects, and guard with typeof window !== 'undefined' if needed.
     },
     get_shipping: (state,) => {
       const data = localStorage.getItem('shipping_info');
