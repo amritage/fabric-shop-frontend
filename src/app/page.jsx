@@ -16,6 +16,7 @@ import FeatureAreaTwo from '@/components/features/feature-area-2';
 import { FiMessageCircle } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Footer from '@/layout/footers/footer';
+import Chatbot from '@/components/Chatbot';
 
 export default function HomePageTwo() {
   const [open, setOpen] = useState(false);
@@ -69,6 +70,7 @@ export default function HomePageTwo() {
           </div>
         </div>
       )}
+      <Chatbot />
       <Footer />
     </Wrapper>
   );

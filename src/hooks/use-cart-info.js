@@ -1,32 +1,30 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 const useCartInfo = () => {
-    const [quantity, setQuantity] = useState(0);
-    const [ total, setTotal] = useState(0);
-    const { cart_products } = useSelector((state) => state.cart);
+    const { cart_products = [] } = useSelector((state) => state.cart);
 
-    useEffect(() => {
-        const cart = cart_products.reduce((cartTotal, cartItem) => {
-            const { salesPrice, orderQuantity } = cartItem;
-            const itemTotal = (salesPrice || 0) * orderQuantity;
-            cartTotal.total += itemTotal
-            cartTotal.quantity += orderQuantity
+    const { total, quantity } = useMemo(() => {
+        return cart_products.reduce(
+            (cartTotal, cartItem) => {
+                const { salesPrice, orderQuantity } = cartItem;
+                const itemTotal = (salesPrice || 0) * orderQuantity;
+                cartTotal.total += itemTotal;
+                cartTotal.quantity += orderQuantity;
+                return cartTotal;
+            },
+            {
+                total: 0,
+                quantity: 0,
+            }
+        );
+    }, [cart_products]);
 
-            return cartTotal;
-        }, {
-            total: 0,
-            quantity: 0,
-        })
-        setQuantity(cart.quantity);
-        setTotal(cart.total);
-    }, [cart_products])
     return {
         quantity,
-        total,
-        setTotal,
-    }
+        total: Number(total.toFixed(2)),
+    };
 }
 
 export default useCartInfo;
