@@ -37,8 +37,6 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
                   checked={
                     router_status ===
                     s.toLowerCase().replace("&", "").split(" ").join("-")
-                      ? "checked"
-                      : false
                   }
                   readOnly
                 />

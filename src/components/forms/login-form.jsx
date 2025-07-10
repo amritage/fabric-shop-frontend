@@ -40,7 +40,7 @@ const LoginForm = () => {
       .then((data) => {
         if (data?.data) {
           notifySuccess("Login successfully");
-          router.push('/checkout' || "/");
+          router.push('/checkout');
         }
         else {
           notifyError(data?.error?.data?.error)

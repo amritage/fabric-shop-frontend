@@ -57,8 +57,6 @@ const StructureFilter = ({setCurrPage,shop_right=false}) => {
                 checked={
                   structure ===
                   item.name.toLowerCase().replace("&", "").split(" ").join("-")
-                    ? "checked"
-                    : false
                 }
                 readOnly
               />

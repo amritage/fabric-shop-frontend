@@ -13,8 +13,11 @@ const useSticky = () => {
         }
     }
     useEffect(() => {
-        window.addEventListener('scroll',stickyHeader)
-    },[]);
+        window.addEventListener('scroll', stickyHeader);
+        return () => {
+            window.removeEventListener('scroll', stickyHeader);
+        };
+    }, []);
 
     return {
         sticky,

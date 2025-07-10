@@ -33,47 +33,43 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
   const [currPage, setCurrPage] = useState(1);
   const [selectedFilters, setSelectedFilters] = useState({});
 
-  // Decide which API to use (priority order)
+  // Call all hooks unconditionally
+  const gsmQuery = useGetGsmUptoQuery(gsm);
+  const ozQuery = useGetOzUptoQuery(oz);
+  const quantityQuery = useGetQuantityUptoQuery(quantity);
+  const purchasePriceQuery = useGetPurchasePriceUptoQuery(purchasePrice);
+  const priceQuery = useGetPriceUptoQuery(minPrice);
+  const allProductsQuery = useGetAllNewProductsQuery();
+
+  // Decide which API result to use (priority order)
   let products = null;
   let isLoading = false;
   let isError = false;
 
   if (gsm) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetGsmUptoQuery(gsm);
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = gsmQuery.data;
+    isLoading = gsmQuery.isLoading;
+    isError = gsmQuery.isError;
   } else if (oz) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetOzUptoQuery(oz);
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = ozQuery.data;
+    isLoading = ozQuery.isLoading;
+    isError = ozQuery.isError;
   } else if (quantity) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetQuantityUptoQuery(quantity);
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = quantityQuery.data;
+    isLoading = quantityQuery.isLoading;
+    isError = quantityQuery.isError;
   } else if (purchasePrice) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetPurchasePriceUptoQuery(purchasePrice);
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = purchasePriceQuery.data;
+    isLoading = purchasePriceQuery.isLoading;
+    isError = purchasePriceQuery.isError;
   } else if (minPrice && maxPrice && minPrice === maxPrice) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetPriceUptoQuery(minPrice);
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = priceQuery.data;
+    isLoading = priceQuery.isLoading;
+    isError = priceQuery.isError;
   } else {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data, isLoading: loading, isError: error } = useGetAllNewProductsQuery();
-    products = data;
-    isLoading = loading;
-    isError = error;
+    products = allProductsQuery.data;
+    isLoading = allProductsQuery.isLoading;
+    isError = allProductsQuery.isError;
   }
 
   const handleFilterChange = (newFilters) => {

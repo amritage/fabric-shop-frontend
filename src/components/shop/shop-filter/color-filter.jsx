@@ -61,8 +61,6 @@ const ColorFilter = ({setCurrPage,shop_right=false}) => {
                 checked={
                   color ===
                   item.name.toLowerCase().replace("&", "").split(" ").join("-")
-                    ? "checked"
-                    : false
                 }
                 readOnly
               />
