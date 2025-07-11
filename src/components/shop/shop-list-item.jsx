@@ -88,7 +88,7 @@ const ShopListItem = ({ product }) => {
   return (
     <div className="tp-product-list-item d-md-flex">
       <div className="tp-product-list-thumb p-relative fix">
-        <Link href={`/product/${slugify(title)}-${product._id}`}>
+        <Link href={`/fabric/${slugify(title)}-${product._id}`}>
           {imageUrl && (
             <Image 
               src={imageUrl} 
@@ -145,7 +145,7 @@ const ShopListItem = ({ product }) => {
             {tags?.map((t, i) => <a key={i} href="#">{t}</a>)}
           </div>
           <h3 className="tp-product-title-2">
-            <Link href={`/product/${slugify(title)}-${product._id}`}>{title}</Link>
+            <Link href={`/fabric/${slugify(title)}-${product._id}`}>{title}</Link>
           </h3>
           <div className="tp-product-rating-icon tp-product-rating-icon-2">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />

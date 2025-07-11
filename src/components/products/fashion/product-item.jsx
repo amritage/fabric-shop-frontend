@@ -53,7 +53,7 @@ const ProductItem = ({ product }) => {
   return (
     <div className="tp-product-item-2 mb-40">
       <div className="tp-product-thumb-2 p-relative z-index-1 fix">
-        <Link href={`/product/${slugify(product.name)}-${product._id}`}>
+        <Link href={`/fabric/${slugify(product.name)}-${product._id}`}>
           <div style={{ position: 'relative', width: '100%', height: '342px' }}>
             <Image
               src={imageUrl}
@@ -110,7 +110,7 @@ const ProductItem = ({ product }) => {
           <a href="#">{product.newCategoryId?.name || 'Unknown Category'}</a>
         </div>
         <h3 className="tp-product-title-2">
-          <Link href={`/product/${slugify(product.name)}-${product._id}`}>{product.name}</Link>
+          <Link href={`/fabric/${slugify(product.name)}-${product._id}`}>{product.name}</Link>
         </h3>
         <div className="tp-product-price-wrapper-2">
           <span className="tp-product-price-2 new-price">${product.salesPrice}</span>
