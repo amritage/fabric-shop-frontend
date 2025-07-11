@@ -124,6 +124,7 @@ const PopularProducts = () => {
                     onError={(e) => {
                       e.target.src = '/assets/img/product/product-1.jpg';
                     }}
+                    style={{ objectFit: 'contain' }}
                   />
                 </Link>
               </div>

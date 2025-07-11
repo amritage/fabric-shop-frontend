@@ -211,7 +211,7 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
       Number(p.salesPrice) <= Number(maxPrice))
     }
     return product_items;
-  }, [isLoading, isError, products, selectedFilters, selectValue, category, filterColor, filterStructure]);
+  }, [isLoading, isError, products, selectedFilters, selectValue, category, filterColor, filterStructure, filterContent, filterFinish, minPrice, maxPrice]);
 
   let content = null;
   if (isLoading) {
