@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from '@/layout/headers/header-2';
 import FashionBanner from '@/components/banner/fashion-banner';
-import FashionCategory from '@/components/categories/fashion-category';
 import PopularProducts from '@/components/products/fashion/popular-products';
 import ProductArea from '@/components/products/fashion/product-area';
 import WeeksFeatured from '@/components/products/fashion/weeks-featured';
@@ -240,7 +239,6 @@ export default function HomePageTwo() {
     <Wrapper>
       <HeaderTwo />
       <FashionBanner />
-      <FashionCategory />
       <PopularProducts />
       <ProductArea />
       <WeeksFeatured />

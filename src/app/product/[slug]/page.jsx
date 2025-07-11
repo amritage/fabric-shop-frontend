@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from 'react';
 import ProductDetailsArea from '@/components/product-details/product-details-area';
 import { useGetSingleNewProductQuery } from '@/redux/features/newProductApi';
@@ -57,7 +57,9 @@ function mapBackendProductToFrontend(product) {
 
 export default function ProductDetailsPage() {
   const params = useParams();
-  const id = params.id;
+  const slug = params.slug;
+  // Extract ID from slug (after last hyphen)
+  const id = slug?.split('-').pop();
   const { data: product, isError, isLoading } = useGetSingleNewProductQuery(id, { skip: !id });
 
   let content = null;
@@ -79,4 +81,4 @@ export default function ProductDetailsPage() {
       <Footer primary_style={true} />
     </Wrapper>
   );
-}
+} 
