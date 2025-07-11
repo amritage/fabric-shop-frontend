@@ -13,6 +13,7 @@ export default function ContactPage() {
   return (
     <Wrapper>
       <HeaderTwo style_2={true} />
+      <h1 style={{position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden'}}>Contact Us - Get in Touch</h1>
       <ContactBreadcrumb />
       <ContactArea/>
       <ContactMap/>

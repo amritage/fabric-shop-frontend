@@ -238,6 +238,7 @@ export default function HomePageTwo() {
   return (
     <Wrapper>
       <HeaderTwo />
+      <h1 style={{position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden'}}>Welcome to Amrita Global Enterprise - Quality Products & Services</h1>
       <FashionBanner />
       <PopularProducts />
       <ProductArea />

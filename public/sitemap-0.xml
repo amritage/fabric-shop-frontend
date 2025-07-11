@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/blog-list</loc><lastmod>2025-07-11T13:48:48.053Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/blog-details</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/compare</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/blog</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/coupon</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/blog-details-2</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/forgot</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/cart</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/checkout</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/home-3</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/login</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/register</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/home-4</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/profile</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/product-details-video</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/product-details-countdown</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/shop-hidden-sidebar</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/contact</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/shop-right-sidebar</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/wishlist</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/product-details-swatches</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/search</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/shop-category</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/shop</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/product-details</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app/blog-grid</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fabric-shop-frontend-production.up.railway.app</loc><lastmod>2025-07-11T13:48:48.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
