@@ -7,7 +7,7 @@ export const newProductApi = apiSlice.injectEndpoints({
       query: () => "/newproduct/view",
     }),
     getSingleNewProduct: builder.query({
-      query: (id) => `/newproduct/view/${id}`,
+      query: (slug) => `/newproduct/slug/${slug}`,
     }),
     addNewProduct: builder.mutation({
       query: (data) => ({

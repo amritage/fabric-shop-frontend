@@ -58,9 +58,7 @@ function mapBackendProductToFrontend(product) {
 export default function ProductDetailsPage() {
   const params = useParams();
   const slug = params.slug;
-  // Extract ID from slug (after last hyphen)
-  const id = slug?.split('-').pop();
-  const { data: product, isError, isLoading } = useGetSingleNewProductQuery(id, { skip: !id });
+  const { data: product, isError, isLoading } = useGetSingleNewProductQuery(slug, { skip: !slug });
 
   let content = null;
   if (isLoading) {

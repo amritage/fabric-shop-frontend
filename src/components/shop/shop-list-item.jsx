@@ -10,9 +10,9 @@ import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { add_to_compare } from "@/redux/features/compareSlice";
-import { slugify } from '@/utils/slugify';
 
 const ShopListItem = ({ product }) => {
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const { _id, img, image, title, reviews, price, discount, tags, description } = product || {};
   const dispatch = useDispatch()
   const [ratingVal, setRatingVal] = useState(0);
@@ -88,7 +88,7 @@ const ShopListItem = ({ product }) => {
   return (
     <div className="tp-product-list-item d-md-flex">
       <div className="tp-product-list-thumb p-relative fix">
-        <Link href={`/fabric/${slugify(title)}-${product._id}`}>
+        <Link href={`/fabric/${product.slug}`}>
           {imageUrl && (
             <Image 
               src={imageUrl} 
@@ -145,8 +145,8 @@ const ShopListItem = ({ product }) => {
             {tags?.map((t, i) => <a key={i} href="#">{t}</a>)}
           </div>
           <h3 className="tp-product-title-2">
-            <Link href={`/fabric/${slugify(title)}-${product._id}`}>{title}</Link>
-          </h3>
+            <Link href={`/fabric/${product.slug}`}>{title}</Link>
+            </h3>
           <div className="tp-product-rating-icon tp-product-rating-icon-2">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
           </div>
