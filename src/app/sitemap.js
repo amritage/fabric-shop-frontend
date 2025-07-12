@@ -108,8 +108,19 @@ export default async function sitemap() {
   }
 
   // Combine all pages
-  const allPages = [...staticPages, ...blogPages, ...productPages];
-  
+  const allPages = [
+    ...staticPages,
+    ...blogPages,
+    ...productPages,
+    // Add a timestamp entry for debugging
+    {
+      url: `${baseUrl}/sitemap-generated-at-${Date.now()}`,
+      lastModified: new Date(),
+      changeFrequency: 'always',
+      priority: 0.1,
+    },
+  ];
+
   // Validate and log statistics
   validateSitemapData(allPages);
   logSitemapStats(allPages);
