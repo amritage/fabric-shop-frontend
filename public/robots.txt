@@ -2,6 +2,13 @@
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /api/*
+Disallow: /admin/*
+Disallow: /_next/*
+Disallow: /checkout
+
 # Host
 Host: https://fabric-shop-frontend-production.up.railway.app
 
