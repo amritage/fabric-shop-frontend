@@ -26,7 +26,7 @@ export async function pingSearchEngines(sitemapUrl) {
     })
   );
 
-  results.forEach((result, index) => {
+  results.forEach((result) => {
     if (result.status === 'fulfilled') {
       const { url, status, success } = result.value;
       const engine = url.includes('google') ? 'Google' : 'Bing';
@@ -81,7 +81,7 @@ export function validateSitemapData(sitemapData) {
 
   const requiredFields = ['url'];
   const invalidEntries = sitemapData.filter(entry => 
-    !requiredFields.every(field => entry.hasOwnProperty(field))
+    !requiredFields.every(field => Object.prototype.hasOwnProperty.call(entry, field))
   );
 
   if (invalidEntries.length > 0) {

@@ -66,7 +66,10 @@ export default async function sitemap() {
   // Fetch ALL products from API at runtime (this ensures new products are included)
   let productPages = [];
   try {
-    const apiBaseUrl = (process.env.NEXT_PUBLIC_API_BASE_URL || 'https://adorable-gentleness-production.up.railway.app').replace(/\/?$/, '/api');
+    let apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://adorable-gentleness-production.up.railway.app/api';
+    if (!apiBaseUrl.endsWith('/api')) {
+      apiBaseUrl = apiBaseUrl.replace(/\/$/, '') + '/api';
+    }
     const apiUrl = `${apiBaseUrl}/newproduct/view`;
     
     console.log('📡 Fetching fresh products from API:', apiUrl);
