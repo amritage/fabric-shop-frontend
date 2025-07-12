@@ -84,6 +84,7 @@ export default async function sitemap() {
     
     if (response.ok) {
       const data = await response.json();
+      console.log('API DATA:', data); // Log the API data for debugging
       
       if (data.data && Array.isArray(data.data)) {
         console.log(`🛒 Found ${data.data.length} products (including any new ones)`);
