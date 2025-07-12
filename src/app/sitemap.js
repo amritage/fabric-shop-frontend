@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import blogData from '@/data/blog-data';
 import { logSitemapStats, validateSitemapData } from '@/utils/sitemap-utils';
 
