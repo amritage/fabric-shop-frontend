@@ -2,6 +2,7 @@
   "name": "shofy-next-js",
   "version": "0.1.0",
   "private": true,
+  "sideEffects": false,
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 Firefox versions",
@@ -62,10 +63,12 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@next/bundle-analyzer": "^15.3.5",
     "@types/styled-components": "^4.4.3",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.21",
+    "critters-webpack-plugin": "^3.0.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.0.3",
     "eslint-config-prettier": "^10.1.5",

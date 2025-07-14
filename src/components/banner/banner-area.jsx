@@ -5,23 +5,22 @@ import Link from "next/link";
 import { ArrowRight } from "@/svg";
 import banner_1 from "@assets/img/product/banner/product-banner-1.jpg";
 import banner_2 from "@assets/img/product/banner/product-banner-2.jpg";
+import styles from './BannerArea.module.scss';
 
 
 // banner item
 function BannerItem({ sm = false, bg, title }) {
   return (
     <div
-      className={`tp-banner-item ${
-        sm ? "tp-banner-item-sm" : ""
-      } tp-banner-height p-relative mb-30 z-index-1 fix`}
+      className={`${styles.tpBannerItem} ${sm ? 'tp-banner-item-sm' : ''} tp-banner-height p-relative fix`}
     >
       <div
-        className="tp-banner-thumb include-bg transition-3"
+        className={`${styles.tpBannerThumb} tp-banner-thumb include-bg transition-3`}
         style={{ backgroundImage: `url(${bg.src})` }}
       ></div>
-      <div className="tp-banner-content">
+      <div className={`${styles.tpBannerContent} tp-banner-content`}>
         {!sm && <span>Sale 20% off all store</span>}
-        <h3 className="tp-banner-title">
+        <h3 className={`${styles.tpBannerTitle} tp-banner-title`}>
           <Link href="/shop">{title}</Link>
         </h3>
         {sm && <p>Sale 35% off</p>}
