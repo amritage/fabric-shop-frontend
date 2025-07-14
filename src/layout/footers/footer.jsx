@@ -27,6 +27,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                           height={40}
                           style={{ height: "auto", width: "auto", maxWidth: "120px", maxHeight: "40px" }}
                           sizes="(max-width: 600px) 100px, 120px"
+                          priority
                         />
                       </Link>
                     </div>

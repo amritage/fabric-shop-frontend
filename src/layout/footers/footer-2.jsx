@@ -20,7 +20,7 @@ const FooterTwo = () => {
                   <div className="tp-footer-widget footer-col-4-1 mb-50">
                     <div className="tp-footer-logo">
                       <Link href="/">
-                        <Image src={logo} alt="logo" />
+                        <Image src={logo} alt="logo" width={120} height={40} priority />
                       </Link>
                     </div>
                     <div className="tp-footer-widget-content">
