@@ -88,6 +88,7 @@ export default async function sitemap() {
       
       if (data.data && Array.isArray(data.data)) {
         console.log(`🛒 Found ${data.data.length} products (including any new ones)`);
+        console.log('📝 Product slugs from API:', data.data.map(p => p.slug)); // EXTRA DEBUG LOG
         
         productPages = data.data
           .filter(product => product.slug) // Only include products with slugs
@@ -99,6 +100,7 @@ export default async function sitemap() {
           }));
         
         console.log(`✅ Generated ${productPages.length} product URLs`);
+        console.log('✅ Product URLs:', productPages.map(p => p.url)); // EXTRA DEBUG LOG
       } else {
         console.log('❌ No products found in API response');
       }
