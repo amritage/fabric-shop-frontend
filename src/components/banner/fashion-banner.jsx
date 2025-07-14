@@ -47,29 +47,42 @@ const slider_setting = {
     el: ".tp-slider-2-dot",
     clickable: true,
   },
+  // Enable Swiper's built-in lazy loading for images
+  lazy: true,
+  // Enable keyboard navigation
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
 }
 
 const FashionBanner = () => {
   return (
     <>
-      <section className="tp-slider-area p-relative z-index-1">
+      <section className="tp-slider-area p-relative z-index-1" role="region" aria-label="Homepage Fashion Banner Slider">
         {/* Preload LCP image for Lighthouse test, hidden from users */}
         <div style={{ display: 'none' }}>
           <Image
             src={slider_data[0].img}
-            alt="slider img"
-            fill
-            className="fashion-slider-img"
+            alt={slider_data[0].title}
+            width={507}
+            height={600}
             priority
             fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"
           />
         </div>
-        <Swiper {...slider_setting} modules={[Pagination, Navigation, EffectFade]} className="tp-slider-active-2 swiper-container">
+        <Swiper
+          {...slider_setting}
+          modules={[Pagination, Navigation, EffectFade]}
+          className="tp-slider-active-2 swiper-container"
+          aria-label="Fashion Banner Slider"
+        >
           {slider_data.map((item, i) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id} aria-label={`Slide ${i + 1}: ${item.title}`}> 
               <div className="tp-slider-item-2 tp-slider-height-2 p-relative grey-bg-5 d-flex align-items-end">
                 <div className="tp-slider-2-shape">
-                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider_shape" />
+                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider decorative shape" width={80} height={80} />
                 </div>
                 <div className="container">
                   <div className="row align-items-center">
@@ -85,13 +98,24 @@ const FashionBanner = () => {
                     <div className="col-xl-6 col-lg-6 col-md-6">
                       <div className="tp-slider-thumb-2-wrapper p-relative">
                         <div className="tp-slider-thumb-2-shape">
-                       {/*    <Image className="tp-slider-thumb-2-shape-1" src={thumb_shape_1} alt="shape" />
-                          <Image className="tp-slider-thumb-2-shape-2" src={thumb_shape_2} alt="shape" /> */}
+                          {/* Shapes can be added here if needed */}
                         </div>
                         <div className="tp-slider-thumb-2 text-end">
                           <span className="tp-slider-thumb-2-gradient"></span>
                           <div className="fashion-slider-img-container">
-                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority={i === 0} fetchPriority={i === 0 ? "high" : undefined} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"/>
+                            <Image
+                              src={item.img}
+                              alt={item.title}
+                              width={507}
+                              height={600}
+                              priority={i === 0}
+                              fetchPriority={i === 0 ? "high" : undefined}
+                              loading={i === 0 ? undefined : "lazy"}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"
+                              className="fashion-slider-img swiper-lazy"
+                            />
+                            {/* Swiper lazy loader indicator */}
+                            {i !== 0 && <div className="swiper-lazy-preloader"></div>}
                           </div>
                         </div>
                       </div>

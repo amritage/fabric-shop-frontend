@@ -43,34 +43,13 @@ const slider_setting = {
       slidesPerView: 1,
     },
   },
-};
-
-// LazyImage component for lazy loading images
-const LazyImage = ({ src, alt, ...props }) => {
-  const ref = useRef();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} style={{ width: '100%', height: '100%' }}>
-      {isVisible && (
-        <Image src={src} alt={alt} {...props} />
-      )}
-    </div>
-  );
+  // Enable Swiper's built-in lazy loading for images
+  lazy: true,
+  // Enable keyboard navigation
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
 };
 
 function getFixedImageUrl(url) {
@@ -134,27 +113,32 @@ const PopularProducts = () => {
         {...slider_setting}
         modules={[Scrollbar]}
         className="tp-category-slider-active-2 swiper-container mb-50"
+        aria-label="Popular Products Slider"
       >
-        {product_items.map((item) => {
+        {product_items.map((item, idx) => {
           const imageUrl = getFixedImageUrl(item.image);          
           return (
             <SwiperSlide
               key={item._id}
               className="tp-category-item-2 p-relative z-index-1 text-center"
+              aria-label={`Slide ${idx + 1}: ${item.name ? item.name.substring(0, 15) : 'Product Name'}`}
             >
               <div className="tp-category-thumb-2">
                 <Link href={`/product-details/${item._id}`}>
-                  <LazyImage
+                  <Image
                     src={imageUrl}
                     alt={item.name || "product-img"}
                     width={224}
                     height={260}
-                    onError={(e) => {
-                      e.target.src = '/assets/img/product/product-1.jpg';
-                    }}
                     style={{ objectFit: 'contain' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 224px"
+                    className="fashion-popular-img swiper-lazy"
+                    priority={idx === 0}
+                    fetchPriority={idx === 0 ? 'high' : undefined}
+                    loading={idx === 0 ? undefined : 'lazy'}
                   />
+                  {/* Swiper lazy loader indicator */}
+                  {idx !== 0 && <div className="swiper-lazy-preloader"></div>}
                 </Link>
               </div>
               <div className="tp-category-content-2">

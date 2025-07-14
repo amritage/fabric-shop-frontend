@@ -21,6 +21,13 @@ const slider_setting = {
     nextEl: ".tp-testimonial-slider-button-next",
     prevEl: ".tp-testimonial-slider-button-prev",
   },
+  // Enable Swiper's built-in lazy loading for images
+  lazy: true,
+  // Enable keyboard navigation
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
 }
 
 const FashionTestimonial = () => {
@@ -38,19 +45,21 @@ const FashionTestimonial = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-8 col-lg-8 col-md-10">
 
-                    <Swiper {...slider_setting} modules={[Navigation, Pagination]} className="tp-testimonial-slider-active swiper-container">
-                      {fashion_testi_data.map(item => (
-                        <SwiperSlide key={item.id} className="tp-testimonial-item text-center mb-20">
+                    <Swiper {...slider_setting} modules={[Navigation, Pagination]} className="tp-testimonial-slider-active swiper-container" aria-label="Fashion Testimonial Slider">
+                      {fashion_testi_data.map((item, idx) => (
+                        <SwiperSlide key={item.id} className="tp-testimonial-item text-center mb-20" aria-label={`Slide ${idx + 1}: ${item.name}`}>
                           <div className="tp-testimonial-rating">
                             <span><Rating fillColor='#821F40' readonly={true} allowFraction size={20} initialValue={item.review}/></span>
                           </div>
                           <div className="tp-testimonial-content">
                             <p>{item.desc}</p>
-                          </div> 
+                          </div>
                           <div className="tp-testimonial-user-wrapper d-flex align-items-center justify-content-center">
                             <div className="tp-testimonial-user d-flex align-items-center">
                               <div className="tp-testimonial-avater mr-10">
-                                <Image src={item.user} alt="user img" width={48} height={48} sizes="48px" />
+                                <Image src={item.user} alt={item.name + ' avatar'} width={48} height={48} sizes="48px" className="swiper-lazy" priority={idx === 0} fetchPriority={idx === 0 ? 'high' : undefined} loading={idx === 0 ? undefined : 'lazy'} />
+                                {/* Swiper lazy loader indicator */}
+                                {idx !== 0 && <div className="swiper-lazy-preloader"></div>}
                               </div>
                               <div className="tp-testimonial-user-info tp-testimonial-user-translate">
                                 <h3 className="tp-testimonial-user-title">{item.name}</h3>

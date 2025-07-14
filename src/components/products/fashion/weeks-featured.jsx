@@ -34,7 +34,14 @@ const slider_setting = {
     '0': {
       slidesPerView: 1,
     },
-  }
+  },
+  // Enable Swiper's built-in lazy loading for images
+  lazy: true,
+  // Enable keyboard navigation
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
 }
 
 const getImageUrl = (item) => {
@@ -92,11 +99,18 @@ const WeeksFeatured = () => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
     content = (
-      <Swiper {...slider_setting} modules={[Navigation]} className="tp-featured-slider-active swiper-container">
-        {product_items.map((item) => {
+      <Swiper {...slider_setting} modules={[Navigation]} className="tp-featured-slider-active swiper-container" aria-label="Featured Products Slider">
+        {product_items.map((item, idx) => {
           return (
-            <SwiperSlide key={item._id} className="tp-featured-item white-bg p-relative z-index-1">
-              <LazyBackground className="tp-featured-thumb include-bg" src={getImageUrl(item)} data-background="assets/img/product/slider/product-slider-1.jpg" />
+            <SwiperSlide key={item._id} className="tp-featured-item white-bg p-relative z-index-1" aria-label={`Slide ${idx + 1}: ${item.title}`}> 
+              <div
+                className="tp-featured-thumb include-bg swiper-lazy"
+                aria-label={item.title}
+                style={{ backgroundImage: `url(${getImageUrl(item)})` }}
+                data-background={getImageUrl(item)}
+              />
+              {/* Swiper lazy loader indicator */}
+              <div className="swiper-lazy-preloader"></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
                   <Link href={`/product-details/${item._id}`}>{item.title}</Link>
@@ -106,7 +120,7 @@ const WeeksFeatured = () => {
                     <>
                       <span className="tp-featured-price new-price">${item.price}</span>
                       <span className="tp-featured-price old-price">
-                        {" "} $ {(Number(item.price) - (Number(item.price) * Number(item.discount)) / 100).toFixed(2)}
+                        {" " }$ {(Number(item.price) - (Number(item.price) * Number(item.discount)) / 100).toFixed(2)}
                       </span>
                     </>
                   ) : (
