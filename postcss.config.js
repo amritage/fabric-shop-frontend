@@ -1,4 +1,14 @@
-module.exports = {
+import purgecss from '@fullhuman/postcss-purgecss';
+
+const purge = purgecss({
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './public/**/*.html',
+  ],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+});
+
+const postcssConfig = {
   plugins: {
     'postcss-preset-env': {
       autoprefixer: {
@@ -6,5 +16,8 @@ module.exports = {
       },
       stage: 3,
     },
+    ...(process.env.NODE_ENV === 'production' ? { purge } : {}),
   },
-}; 
+};
+
+export default postcssConfig;

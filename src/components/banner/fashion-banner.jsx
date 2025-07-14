@@ -65,7 +65,7 @@ const FashionBanner = () => {
           />
         </div>
         <Swiper {...slider_setting} modules={[Pagination, Navigation, EffectFade]} className="tp-slider-active-2 swiper-container">
-          {slider_data.map((item) => (
+          {slider_data.map((item, i) => (
             <SwiperSlide key={item.id}>
               <div className="tp-slider-item-2 tp-slider-height-2 p-relative grey-bg-5 d-flex align-items-end">
                 <div className="tp-slider-2-shape">
@@ -91,7 +91,7 @@ const FashionBanner = () => {
                         <div className="tp-slider-thumb-2 text-end">
                           <span className="tp-slider-thumb-2-gradient"></span>
                           <div className="fashion-slider-img-container">
-                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority fetchPriority="high"/>
+                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority={i === 0} fetchPriority={i === 0 ? "high" : undefined} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"/>
                           </div>
                         </div>
                       </div>

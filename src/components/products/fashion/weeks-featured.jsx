@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Rating } from 'react-simple-star-rating';
@@ -44,6 +44,35 @@ const getImageUrl = (item) => {
   return '/assets/img/product/default-product-img.jpg';
 };
 
+// LazyBackground component for lazy loading background images
+const LazyBackground = ({ src, className = '', ...props }) => {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={isVisible ? { backgroundImage: `url(${src})` } : {}}
+      {...props}
+    />
+  );
+};
+
 const WeeksFeatured = () => {
   const { data: products, isError, isLoading } = useGetTopRatedQuery();
   // decide what to render
@@ -67,7 +96,7 @@ const WeeksFeatured = () => {
         {product_items.map((item) => {
           return (
             <SwiperSlide key={item._id} className="tp-featured-item white-bg p-relative z-index-1">
-              <div className="tp-featured-thumb include-bg" style={{ backgroundImage: `url(${getImageUrl(item)})` }} data-background="assets/img/product/slider/product-slider-1.jpg"></div>
+              <LazyBackground className="tp-featured-thumb include-bg" src={getImageUrl(item)} data-background="assets/img/product/slider/product-slider-1.jpg" />
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
                   <Link href={`/product-details/${item._id}`}>{item.title}</Link>

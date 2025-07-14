@@ -97,6 +97,7 @@ const ShopListItem = ({ product }) => {
               width={350} 
               height={310}
               style={{ color: 'transparent' }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 350px"
               onError={(e) => {
                 e.target.src = '/assets/img/product/default-product-img.jpg';
               }}

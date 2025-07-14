@@ -52,7 +52,7 @@ const JewelryBrands = () => {
                   {brand_data.map((logo, i) => (
                     <SwiperSlide key={i} className="tp-brand-item text-center">
                       <a href="#">
-                        <Image src={logo} alt="brand img" />
+                        <Image src={logo} alt="brand img" width={100} height={40} />
                       </a>
                     </SwiperSlide>
                   ))}

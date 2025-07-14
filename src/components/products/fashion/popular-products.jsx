@@ -1,6 +1,6 @@
 'use client';
 // external
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
 import Image from "next/image";
@@ -43,6 +43,34 @@ const slider_setting = {
       slidesPerView: 1,
     },
   },
+};
+
+// LazyImage component for lazy loading images
+const LazyImage = ({ src, alt, ...props }) => {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ width: '100%', height: '100%' }}>
+      {isVisible && (
+        <Image src={src} alt={alt} {...props} />
+      )}
+    </div>
+  );
 };
 
 function getFixedImageUrl(url) {
@@ -116,7 +144,7 @@ const PopularProducts = () => {
             >
               <div className="tp-category-thumb-2">
                 <Link href={`/product-details/${item._id}`}>
-                  <Image
+                  <LazyImage
                     src={imageUrl}
                     alt={item.name || "product-img"}
                     width={224}
@@ -125,6 +153,7 @@ const PopularProducts = () => {
                       e.target.src = '/assets/img/product/product-1.jpg';
                     }}
                     style={{ objectFit: 'contain' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 224px"
                   />
                 </Link>
               </div>

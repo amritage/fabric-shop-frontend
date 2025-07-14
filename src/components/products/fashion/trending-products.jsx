@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 // internal
@@ -34,6 +34,35 @@ const slider_setting = {
     },
   }
 }
+
+// LazyBackground component for lazy loading background images
+const LazyBackground = ({ src, className = '', ...props }) => {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={isVisible ? { backgroundImage: `url(${src})` } : {}}
+      {...props}
+    />
+  );
+};
 
 const TrendingProducts = () => {
   const { data, isError, isLoading } = useGetProductsByTypeQuery({ type: 'fashion', query: 'new=true' });
@@ -87,7 +116,7 @@ const TrendingProducts = () => {
             </div>
             <div className="col-xl-4 col-lg-5 col-md-8 col-sm-10">
               <div className="tp-trending-banner p-relative ml-35">
-                <div className="tp-trending-banner-thumb w-img include-bg" style={{backgroundImage:`url(${trending_banner.src})`}}></div>
+                <LazyBackground className="tp-trending-banner-thumb w-img include-bg" src={trending_banner.src} />
                 <div className="tp-trending-banner-content">
                   <h3 className="tp-trending-banner-title">
                     <Link href="/shop">Short Sleeve Tunic <br /> Tops Casual Swing</Link>

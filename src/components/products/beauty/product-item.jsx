@@ -31,7 +31,7 @@ const ProductItem = ({ product, prdCenter = false, primary_style = false }) => {
     >
       <div className="tp-product-thumb-3 mb-15 fix p-relative z-index-1">
         <Link href={`/product-details/${_id}`}>
-          <Image src={img} alt="product image" width={282} height={320} />
+          <Image src={img} alt="product image" width={282} height={320} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 282px" />
         </Link>
 
         <div className="tp-product-badge">
