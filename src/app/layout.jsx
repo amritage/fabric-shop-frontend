@@ -1,5 +1,4 @@
 import './globals.scss';
-import { Jost } from 'next/font/google';
 import Providers from '../components/provider';
 import GoogleAnalytics from '../components/analytics/GoogleAnalytics';
 import MicrosoftClarity from '../components/analytics/MicrosoftClarity';
@@ -7,15 +6,9 @@ import metadata from './metadata';
 
 export { metadata };
 
-const jost = Jost({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  variable: "--tp-ff-body",
-});
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={jost.variable}>
+    <html lang="en">
       <head>
         {/* Inline critical Font Awesome CSS for above-the-fold icons */}
         <style>{`
@@ -41,7 +34,7 @@ export default function RootLayout({ children }) {
           content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
         />
       </head>
-      <body className={jost.className}>
+      <body>
         <Providers>
           {children}
         </Providers>

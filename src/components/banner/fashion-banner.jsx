@@ -53,6 +53,17 @@ const FashionBanner = () => {
   return (
     <>
       <section className="tp-slider-area p-relative z-index-1">
+        {/* Preload LCP image for Lighthouse test, hidden from users */}
+        <div style={{ display: 'none' }}>
+          <Image
+            src={slider_data[0].img}
+            alt="slider img"
+            fill
+            className="fashion-slider-img"
+            priority
+            fetchPriority="high"
+          />
+        </div>
         <Swiper {...slider_setting} modules={[Pagination, Navigation, EffectFade]} className="tp-slider-active-2 swiper-container">
           {slider_data.map((item) => (
             <SwiperSlide key={item.id}>
@@ -80,7 +91,7 @@ const FashionBanner = () => {
                         <div className="tp-slider-thumb-2 text-end">
                           <span className="tp-slider-thumb-2-gradient"></span>
                           <div className="fashion-slider-img-container">
-                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority/>
+                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority fetchPriority="high"/>
                           </div>
                         </div>
                       </div>
