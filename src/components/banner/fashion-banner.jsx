@@ -58,7 +58,7 @@ const FashionBanner = () => {
             <SwiperSlide key={item.id}>
               <div className="tp-slider-item-2 tp-slider-height-2 p-relative grey-bg-5 d-flex align-items-end">
                 <div className="tp-slider-2-shape">
-                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider_shape" />
+                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider_shape" priority/>
                 </div>
                 <div className="container">
                   <div className="row align-items-center">
@@ -80,7 +80,7 @@ const FashionBanner = () => {
                         <div className="tp-slider-thumb-2 text-end">
                           <span className="tp-slider-thumb-2-gradient"></span>
                           <div className="fashion-slider-img-container">
-                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" priority />
+                            <Image src={item.img} alt="slider img" fill className="fashion-slider-img" />
                           </div>
                         </div>
                       </div>
