@@ -1,4 +1,4 @@
-import purgecss from '@fullhuman/postcss-purgecss';
+const purgecss = require('@fullhuman/postcss-purgecss');
 
 const purge = purgecss({
   content: [
@@ -8,7 +8,7 @@ const purge = purgecss({
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
-const postcssConfig = {
+module.exports = {
   plugins: {
     'postcss-preset-env': {
       autoprefixer: {
@@ -19,5 +19,3 @@ const postcssConfig = {
     ...(process.env.NODE_ENV === 'production' ? { purge } : {}),
   },
 };
-
-export default postcssConfig;
