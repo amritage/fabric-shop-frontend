@@ -12,6 +12,8 @@ import ShopListItem from "./shop-list-item";
 import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
+import PopularProducts from "./shop-filter/popular-products";
+import WeeksFeatured from "./shop-filter/weeks-featured";
 
 const ShopRightArea = ({
   all_products,
@@ -141,6 +143,8 @@ const ShopRightArea = ({
                   <ProductBrand setCurrPage={setCurrPage} shop_right={right_side} />
                   {/* reset filter */}
                   <ResetButton shop_right={right_side} />
+                  <PopularProducts />
+                  <WeeksFeatured />
                 </div>
               </div>
 

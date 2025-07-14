@@ -106,10 +106,10 @@ const WeeksFeatured = () => {
           <div className="col-xl-12">
             <div className="tp-section-title-wrapper-2 mb-50">
               <span className="tp-section-title-pre-2">
-                Shop by Featured
+                On-Trend Textures
                 <TextShapeLine />
               </span>
-              <h3 className="tp-section-title-2">This {"Week's"} Featured</h3>
+              <h3 className="tp-section-title-2">The Ultimate Fabric Edit</h3>
             </div>
           </div>
         </div>

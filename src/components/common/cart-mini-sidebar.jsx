@@ -42,33 +42,36 @@ const handleCloseCartMini = () => {
               <RenderCartProgress/>
             </div>
             {cart_products.length > 0 && <div className="cartmini__widget">
-              {cart_products.map((item,i) => (
-                <div key={i} className="cartmini__widget-item">
-                  <div className="cartmini__thumb">
-                    <Link href={`/product-details/${item._id}`}>
-                      <Image src={item.image || '/assets/img/product/default-product-img.jpg'} width={70} height={60} alt="product img" />
-                    </Link>
-                  </div>
-                  <div className="cartmini__content">
-                    <h5 className="cartmini__title">
-                      <Link href={`/product-details/${item._id}`}>{item.name || item.title}</Link>
-                    </h5>
-                    <div className="cartmini__price-wrapper">
-                      {item.discount > 0 ? (
-                        <span className="cartmini__price">
-                          ${(Number(item.salesPrice) - (Number(item.salesPrice) * Number(item.discount)) / 100).toFixed(2)}
-                        </span>
-                      ) : (
-                        <span className="cartmini__price">
-                          ${(Number(item.salesPrice) || 0).toFixed(2)}
-                        </span>
-                      )}
-                      <span className="cartmini__quantity">{" "}x{item.orderQuantity}</span>
+              {cart_products.map((item,i) => {
+                const slug = item.slug || item._id;
+                return (
+                  <div key={i} className="cartmini__widget-item">
+                    <div className="cartmini__thumb">
+                      <Link href={`/fabric/${slug}`}>
+                        <Image src={item.image || '/assets/img/product/default-product-img.jpg'} width={70} height={60} alt="product img" />
+                      </Link>
                     </div>
+                    <div className="cartmini__content">
+                      <h5 className="cartmini__title">
+                        <Link href={`/fabric/${slug}`}>{item.name || item.title}</Link>
+                      </h5>
+                      <div className="cartmini__price-wrapper">
+                        {item.discount > 0 ? (
+                          <span className="cartmini__price">
+                            ${(Number(item.salesPrice) - (Number(item.salesPrice) * Number(item.discount)) / 100).toFixed(2)}
+                          </span>
+                        ) : (
+                          <span className="cartmini__price">
+                            ${(Number(item.salesPrice) || 0).toFixed(2)}
+                          </span>
+                        )}
+                        <span className="cartmini__quantity">{" "}x{item.orderQuantity}</span>
+                      </div>
+                    </div>
+                    <a onClick={() => handleRemovePrd({ title: item.title, id: item._id })} className="cartmini__del cursor-pointer"><i className="fa-regular fa-xmark"></i></a>
                   </div>
-                  <a onClick={() => handleRemovePrd({ title: item.title, id: item._id })} className="cartmini__del cursor-pointer"><i className="fa-regular fa-xmark"></i></a>
-                </div>
-              ))}
+                );
+              })}
             </div>}
             {/* if no item in cart */}
             {cart_products.length === 0 && <div className="cartmini__empty text-center">

@@ -84,11 +84,12 @@ const ShopListItem = ({ product }) => {
   };
   // Get the final image URL (try both img and image props)
   const imageUrl = getImageUrl(img || image);
+  const slug = product.slug || product._id;
 
   return (
     <div className="tp-product-list-item d-md-flex">
       <div className="tp-product-list-thumb p-relative fix">
-        <Link href={`/fabric/${product.slug}`}>
+        <Link href={`/fabric/${slug}`}>
           {imageUrl && (
             <Image 
               src={imageUrl} 
@@ -145,7 +146,7 @@ const ShopListItem = ({ product }) => {
             {tags?.map((t, i) => <a key={i} href="#">{t}</a>)}
           </div>
           <h3 className="tp-product-title-2">
-            <Link href={`/fabric/${product.slug}`}>{title}</Link>
+            <Link href={`/fabric/${slug}`}>{title}</Link>
             </h3>
           <div className="tp-product-rating-icon tp-product-rating-icon-2">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />

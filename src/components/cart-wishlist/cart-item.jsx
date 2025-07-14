@@ -14,6 +14,8 @@ const CartItem = ({product}) => {
 
   const imageUrl = image?.startsWith('http') ? image : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${image}`;
 
+  const slug = product.slug || _id;
+
     // handle add product
     const handleAddProduct = (prd) => {
       dispatch(add_cart_product(prd))
@@ -32,13 +34,13 @@ const CartItem = ({product}) => {
     <tr>
       {/* img */}
       <td className="tp-cart-img">
-        <Link href={`/product-details/${_id}`}>
+        <Link href={`/fabric/${slug}`}>
           {image && <Image src={imageUrl} alt={title || "product img"} width={70} height={100} style={{objectFit:'cover'}} />}
         </Link>
       </td>
       {/* title */}
       <td className="tp-cart-title">
-        <Link href={`/product-details/${_id}`}>{title}</Link>
+        <Link href={`/fabric/${slug}`}>{title}</Link>
       </td>
       {/* price */}
       <td className="tp-cart-price">

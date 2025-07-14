@@ -51,10 +51,10 @@ const ProductArea = () => {
             <div className="col-xl-12">
               <div className="tp-section-title-wrapper-2 text-center mb-35">
                 <span className="tp-section-title-pre-2">
-                  All Product Shop
+                  Bestselling Fabrics of the Season
                   <TextShapeLine />
                 </span>
-                <h3 className="tp-section-title-2">Customer Favorite Style Product</h3>
+                <h3 className="tp-section-title-2"> Our Most Loved Yarns</h3>
               </div>
             </div>
           </div>

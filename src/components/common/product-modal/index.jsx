@@ -62,6 +62,8 @@ const ProductModal = () => {
     setActiveImg(item.img);
   };
 
+  const slug = productItem?.slug || productItem?._id;
+
   return (
     <ReactModal
       isOpen={isModalOpen}
@@ -92,6 +94,11 @@ const ProductModal = () => {
           activeImg={activeImg}
         />
       </div>
+      {productItem?._id && (
+        <div style={{textAlign: 'center', marginTop: 16}}>
+          <a href={`/fabric/${slug}`} className="tp-btn tp-btn-blue" style={{padding: '8px 24px', fontWeight: 600}}>View Details</a>
+        </div>
+      )}
     </ReactModal>
   );
 };

@@ -13,6 +13,8 @@ import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
 import ShopSidebarFilters from "./ShopSidebarFilters";
+import PopularProductImages from "@/components/products/fashion/popular-product-images";
+import WeeksFeaturedImages from "@/components/products/fashion/weeks-featured-images";
 
 const ShopContent = ({all_products = [],products = [],otherProps,shop_right,hidden_sidebar}) => {
   const {priceFilterValues,selectHandleFilter,currPage,setCurrPage,selectedFilters,handleFilterChange} = otherProps;
@@ -45,6 +47,8 @@ const ShopContent = ({all_products = [],products = [],otherProps,shop_right,hidd
                   <StatusFilter setCurrPage={setCurrPage} />
                   <ShopSidebarFilters selected={selectedFilters} onFilterChange={handleFilterChange} />
                   <ResetButton setPriceValues={setPriceValue} maxPrice={maxPrice} handleFilterChange={handleFilterChange} />
+                  <PopularProductImages />
+                  <WeeksFeaturedImages />
                 </div>
               </div>
             )}
@@ -140,6 +144,8 @@ const ShopContent = ({all_products = [],products = [],otherProps,shop_right,hidd
                   <StatusFilter setCurrPage={setCurrPage} />
                   <ShopSidebarFilters selected={selectedFilters} onFilterChange={handleFilterChange} />
                   <ResetButton setPriceValues={setPriceValue} maxPrice={maxPrice} handleFilterChange={handleFilterChange} />
+                  <PopularProductImages />
+                  <WeeksFeaturedImages />
                 </div>
               </div>
             )}

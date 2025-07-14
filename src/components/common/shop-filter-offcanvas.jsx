@@ -6,6 +6,8 @@ import TopRatedProducts from "../shop/shop-filter/top-rated-products";
 import { handleFilterSidebarClose, handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
 import ResetButton from "../shop/shop-filter/reset-button";
 import ShopSidebarFilters from "../shop/ShopSidebarFilters";
+import PopularProductImages from "@/components/products/fashion/popular-product-images";
+import WeeksFeaturedImages from "@/components/products/fashion/weeks-featured-images";
 
 const ShopFilterOffCanvas = ({
   all_products,
@@ -56,8 +58,6 @@ const ShopFilterOffCanvas = ({
               selected={selectedFilters} 
               onFilterChange={handleFilterChange} 
             />
-            {/* Product rating */}
-            <TopRatedProducts />
             {/* Reset filter */}
             <ResetButton 
               shop_right={right_side} 
@@ -65,6 +65,8 @@ const ShopFilterOffCanvas = ({
               maxPrice={maxPrice} 
               handleFilterChange={handleFilterChange}
             />
+            <PopularProductImages />
+            <WeeksFeaturedImages />
           </div>
         </div>
       </div>

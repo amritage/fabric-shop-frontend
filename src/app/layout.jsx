@@ -19,6 +19,10 @@ export default function RootLayout({ children }) {
       <head>
         <GoogleAnalytics />
         <MicrosoftClarity />
+        <meta
+          name="google-site-verification"
+          content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+        />
       </head>
       <body className={jost.className}>
         <Providers>
