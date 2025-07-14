@@ -131,7 +131,7 @@ const PopularProducts = () => {
                     width={224}
                     height={260}
                     style={{ objectFit: 'contain' }}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 224px"
+                    sizes="(max-width: 600px) 100vw, 224px"
                     className="fashion-popular-img swiper-lazy"
                     priority={idx === 0}
                     fetchPriority={idx === 0 ? 'high' : undefined}

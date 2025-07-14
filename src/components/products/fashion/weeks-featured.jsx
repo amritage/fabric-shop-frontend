@@ -109,8 +109,6 @@ const WeeksFeatured = () => {
                 style={{ backgroundImage: `url(${getImageUrl(item)})` }}
                 data-background={getImageUrl(item)}
               />
-              {/* Swiper lazy loader indicator */}
-              <div className="swiper-lazy-preloader"></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
                   <Link href={`/product-details/${item._id}`}>{item.title}</Link>

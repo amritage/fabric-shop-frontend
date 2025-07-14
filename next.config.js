@@ -32,6 +32,8 @@ const nextConfig = {
     ],
     // You can remove the domains array if you use remotePatterns
     // domains: ['localhost'],
+    formats: ['image/avif', 'image/webp'],
+    quality: 75,
   },
   env: {
     NEXT_PUBLIC_API_BASE_URL: "https://adorable-gentleness-production.up.railway.app/api",

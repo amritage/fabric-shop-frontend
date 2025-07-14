@@ -66,10 +66,10 @@ const FashionBanner = () => {
             src={slider_data[0].img}
             alt={slider_data[0].title}
             width={507}
-            height={600}
+            height={760}
             priority
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"
+            sizes="(max-width: 600px) 100vw, 507px"
           />
         </div>
         <Swiper
@@ -82,7 +82,7 @@ const FashionBanner = () => {
             <SwiperSlide key={item.id} aria-label={`Slide ${i + 1}: ${item.title}`}> 
               <div className="tp-slider-item-2 tp-slider-height-2 p-relative grey-bg-5 d-flex align-items-end">
                 <div className="tp-slider-2-shape">
-                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider decorative shape" width={80} height={80} />
+                  <Image className="tp-slider-2-shape-1" src={slider_shape} alt="slider decorative shape" width={80} height={80} sizes="80px" />
                 </div>
                 <div className="container">
                   <div className="row align-items-center">
@@ -107,11 +107,11 @@ const FashionBanner = () => {
                               src={item.img}
                               alt={item.title}
                               width={507}
-                              height={600}
+                              height={760}
                               priority={i === 0}
                               fetchPriority={i === 0 ? "high" : undefined}
                               loading={i === 0 ? undefined : "lazy"}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 507px"
+                              sizes="(max-width: 600px) 100vw, 507px"
                               className="fashion-slider-img swiper-lazy"
                             />
                             {/* Swiper lazy loader indicator */}
