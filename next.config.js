@@ -37,6 +37,10 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_API_BASE_URL: "https://adorable-gentleness-production.up.railway.app/api",
   },
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+  },
   async redirects() {
     return [
       {
