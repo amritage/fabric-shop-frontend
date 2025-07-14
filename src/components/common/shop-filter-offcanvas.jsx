@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PriceFilter from "../shop/shop-filter/price-filter";
 import StatusFilter from "../shop/shop-filter/status-filter";
-import TopRatedProducts from "../shop/shop-filter/top-rated-products";
 import { handleFilterSidebarClose, handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
 import ResetButton from "../shop/shop-filter/reset-button";
 import ShopSidebarFilters from "../shop/ShopSidebarFilters";

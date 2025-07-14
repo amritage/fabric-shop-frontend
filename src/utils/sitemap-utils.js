@@ -12,9 +12,6 @@ export async function pingSearchEngines(sitemapUrl) {
     `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`,
     `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`,
   ];
-
-  console.log('🔔 Pinging search engines about sitemap updates...');
-
   const results = await Promise.allSettled(
     searchEngines.map(async (url) => {
       try {
@@ -25,20 +22,7 @@ export async function pingSearchEngines(sitemapUrl) {
       }
     })
   );
-
-  results.forEach((result) => {
-    if (result.status === 'fulfilled') {
-      const { url, status, success } = result.value;
-      const engine = url.includes('google') ? 'Google' : 'Bing';
-      if (success) {
-        console.log(`✅ ${engine} ping successful (${status})`);
-      } else {
-        console.log(`❌ ${engine} ping failed (${status})`);
-      }
-    } else {
-      console.log(`❌ Search engine ping failed: ${result.reason}`);
-    }
-  });
+  // Optionally, handle results or throw errors here if needed
 }
 
 /**
@@ -63,8 +47,7 @@ export function logSitemapStats(sitemapData) {
     products: sitemapData.filter(item => item.url.includes('/fabric/')).length,
     blogs: sitemapData.filter(item => item.url.includes('/blog-details/')).length,
   };
-
-  console.log('📊 Sitemap Statistics:', stats);
+  // Optionally, return stats or handle them as needed
   return stats;
 }
 
@@ -75,20 +58,17 @@ export function logSitemapStats(sitemapData) {
  */
 export function validateSitemapData(sitemapData) {
   if (!Array.isArray(sitemapData)) {
-    console.error('❌ Sitemap data is not an array');
+    console.error('Sitemap data is not an array');
     return false;
   }
-
   const requiredFields = ['url'];
   const invalidEntries = sitemapData.filter(entry => 
     !requiredFields.every(field => Object.prototype.hasOwnProperty.call(entry, field))
   );
-
   if (invalidEntries.length > 0) {
-    console.error('❌ Sitemap contains invalid entries:', invalidEntries.length);
+    console.error('Sitemap contains invalid entries:', invalidEntries.length);
     return false;
   }
-
-  console.log('✅ Sitemap data validation passed');
+  // Optionally, return true or handle validation as needed
   return true;
 } 

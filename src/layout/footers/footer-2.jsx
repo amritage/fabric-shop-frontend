@@ -85,7 +85,7 @@ const FooterTwo = () => {
                 </div>
                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-7">
                   <div className="tp-footer-widget footer-col-4-4 mb-50">
-                    <h4 className="tp-footer-widget-title">Subcribe.</h4>
+                    <h4 className="tp-footer-widget-title">Subscribe.</h4>
                     <div className="tp-footer-widget-content">
                       <div className="tp-footer-subscribe">
                         <p>Our conversation is just getting started</p>

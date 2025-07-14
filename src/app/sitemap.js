@@ -5,8 +5,6 @@ import { logSitemapStats, validateSitemapData } from '@/utils/sitemap-utils';
 export default async function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fabric-shop-frontend-production.up.railway.app';
   
-  console.log('🔍 Generating dynamic sitemap at runtime...');
-  
   // Static pages that work
   const staticPages = [
     {
@@ -73,8 +71,6 @@ export default async function sitemap() {
     }
     const apiUrl = `${apiBaseUrl}/newproduct/view`;
     
-    console.log('📡 Fetching fresh products from API:', apiUrl);
-    
     const response = await fetch(apiUrl, {
       next: { revalidate: 300 }, // Cache for 5 minutes to avoid hammering your API
       headers: {
@@ -84,12 +80,9 @@ export default async function sitemap() {
     
     if (response.ok) {
       const data = await response.json();
-      console.log('API DATA:', data); // Log the API data for debugging
+
       
-      if (data.data && Array.isArray(data.data)) {
-        console.log(`🛒 Found ${data.data.length} products (including any new ones)`);
-        console.log('📝 Product slugs from API:', data.data.map(p => p.slug)); // EXTRA DEBUG LOG
-        
+      if (data.data && Array.isArray(data.data)) {        
         productPages = data.data
           .filter(product => product.slug) // Only include products with slugs
           .map(product => ({
@@ -98,17 +91,10 @@ export default async function sitemap() {
             changeFrequency: 'weekly',
             priority: 0.8,
           }));
-        
-        console.log(`✅ Generated ${productPages.length} product URLs`);
-        console.log('✅ Product URLs:', productPages.map(p => p.url)); // EXTRA DEBUG LOG
-      } else {
-        console.log('❌ No products found in API response');
       }
-    } else {
-      console.log('❌ API request failed:', response.status);
     }
   } catch (error) {
-    console.error('❌ Error fetching products:', error.message);
+    // Error fetching products (silent for production)
   }
 
   // Combine all pages
@@ -129,10 +115,5 @@ export default async function sitemap() {
   validateSitemapData(allPages);
   logSitemapStats(allPages);
   
-  console.log(`🎉 Dynamic sitemap generated with ${allPages.length} total URLs:`);
-  console.log(`- ${staticPages.length} static pages`);
-  console.log(`- ${blogPages.length} blog pages`);
-  console.log(`- ${productPages.length} product pages (always up-to-date!)`);
-
   return allPages;
 } 
