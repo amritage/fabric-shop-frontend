@@ -57,7 +57,7 @@ const FashionTestimonial = () => {
                           <div className="tp-testimonial-user-wrapper d-flex align-items-center justify-content-center">
                             <div className="tp-testimonial-user d-flex align-items-center">
                               <div className="tp-testimonial-avater mr-10">
-                                <Image src={item.user} alt={item.name + ' avatar'} width={48} height={48} sizes="48px" className="swiper-lazy" priority={idx === 0} fetchPriority={idx === 0 ? 'high' : undefined} loading={idx === 0 ? undefined : 'lazy'} />
+                                <Image src={item.user} alt={item.name + ' avatar'} width={48} height={48} sizes="48px" layout="responsive" className="swiper-lazy" priority={idx === 0} fetchPriority={idx === 0 ? 'high' : undefined} loading={idx === 0 ? undefined : 'lazy'} quality={60} />
                                 {/* Swiper lazy loader indicator */}
                                 {idx !== 0 && <div className="swiper-lazy-preloader"></div>}
                               </div>

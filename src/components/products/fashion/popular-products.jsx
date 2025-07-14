@@ -128,6 +128,7 @@ const PopularProducts = () => {
                   <Image
                     src={imageUrl}
                     alt={item.name || "product-img"}
+                    layout="responsive"
                     width={224}
                     height={260}
                     style={{ objectFit: 'contain' }}
@@ -136,6 +137,7 @@ const PopularProducts = () => {
                     priority={idx === 0}
                     fetchPriority={idx === 0 ? 'high' : undefined}
                     loading={idx === 0 ? undefined : 'lazy'}
+                    quality={60}
                   />
                   {/* Swiper lazy loader indicator */}
                   {idx !== 0 && <div className="swiper-lazy-preloader"></div>}
