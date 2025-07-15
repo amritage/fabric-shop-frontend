@@ -15,6 +15,7 @@ import FeatureAreaTwo from '@/components/features/feature-area-2';
 import { FiMessageCircle } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Footer from '@/layout/footers/footer';
+import styles from './FloatingButtons.module.scss';
 
 export default function HomePageTwo() {
   const [showTrigger, setShowTrigger] = useState(false);
@@ -251,7 +252,7 @@ export default function HomePageTwo() {
         href="https://wa.me/919999999999"
         target="_blank"
         rel="noopener noreferrer"
-        className="whatsapp-float-btn"
+        className={styles['whatsapp-float-btn']}
         aria-label="Chat on WhatsApp"
       >
         <FaWhatsapp size={28} />
@@ -260,7 +261,7 @@ export default function HomePageTwo() {
       {/* Chat Trigger Bubble */}
       <button
         id="chat-float-btn"
-        className="message-float-btn"
+        className={styles['message-float-btn']}
         onClick={() => setShowTrigger(true)}
         aria-label="Contact Us"
       >

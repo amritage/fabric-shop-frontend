@@ -12,6 +12,7 @@ import slider_shape from '@assets/img/slider/2/shape/shape-1.png';
 /* import thumb_shape_1 from '@assets/img/slider/2/shape/shape-2.png';
 import thumb_shape_2 from '@assets/img/slider/2/shape/shape-3.png';
  */
+import styles from './FashionBanner.module.scss';
 // slider data 
 const slider_data = [
   {
@@ -104,7 +105,7 @@ const FashionBanner = () => {
                         </div>
                         <div className="tp-slider-thumb-2 text-end">
                           <span className="tp-slider-thumb-2-gradient"></span>
-                          <div className="fashion-slider-img-container">
+                          <div className={styles['fashion-slider-img-container']}>
                             <Image
                               src={item.img}
                               alt={item.title}
@@ -115,7 +116,7 @@ const FashionBanner = () => {
                               fetchPriority={i === 0 ? "high" : undefined}
                               loading={i === 0 ? undefined : "lazy"}
                               sizes="(max-width: 600px) 100vw, 507px"
-                              className="fashion-slider-img swiper-lazy"
+                              className={styles['fashion-slider-img'] + ' swiper-lazy'}
                               quality={60}
                             />
                             {/* Swiper lazy loader indicator */}
