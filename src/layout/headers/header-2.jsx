@@ -10,7 +10,7 @@ import useCartInfo from '@/hooks/use-cart-info';
 import { openCartMini } from '@/redux/features/cartSlice';
 import HeaderTopRight from './header-com/header-top-right';
 import CartMiniSidebar from '@/components/common/cart-mini-sidebar';
-import { CartTwo, Compare, Search } from '@/svg';
+import { CartTwo, Search } from '@/svg';
 import useSearchFormSubmit from '@/hooks/use-search-form-submit';
 import OffCanvas from '@/components/common/off-canvas';
 import { useForm } from 'react-hook-form';
@@ -19,13 +19,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { notifySuccess } from '@/utils/toast';
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaWhatsapp, FaTwitter, FaHeart, FaUser } from 'react-icons/fa';
 import { FiPhone, FiMenu } from 'react-icons/fi';
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const tansitionVariants = {
-  initial: (direction) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
-  animate: { x: 0, opacity: 1, transition: { duration: 0.5 } },
-  exit: (direction) => ({ x: direction > 0 ? -100 : 100, opacity: 0, transition: { duration: 0.5 } })
-};
 
 const HeaderTwo = ({ style_2 = false }) => {
   const dispatch = useDispatch();
@@ -50,16 +43,10 @@ const HeaderTwo = ({ style_2 = false }) => {
   const fields = ['name', 'mobileNumber', 'email', 'company', 'message'];
 
   // eslint-disable-next-line no-empty-pattern
-  const { handleSubmit, formState: {} } = useForm({
+  const { formState: {} } = useForm({
     resolver: yupResolver(schema),
     mode: 'onTouched',
   });
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const nextStep = () => {
-    setDirection(1);
-    setStep((prev) => Math.min(prev + 1, fields.length - 1));
-  };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const prevStep = () => {
@@ -67,9 +54,10 @@ const HeaderTwo = ({ style_2 = false }) => {
     setStep((prev) => Math.max(prev - 1, 0));
   };
 
-  const onSubmit = (data) => {
-    notifySuccess('Message Sent!');
-    setIsModalOpen(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const nextStep = () => {
+    setDirection(1);
+    setStep((prev) => Math.min(prev + 1, fields.length - 1));
   };
 
   return (
