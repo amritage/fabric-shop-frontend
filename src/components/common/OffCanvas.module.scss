@@ -1,0 +1,131 @@
+.offcanvas__area {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 380px;
+  height: 100%;
+  transform: translateX(calc(100% + 80px));
+  background: #fff none repeat scroll 0 0;
+  transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  z-index: 99999;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+.offcanvas__area.offcanvas-opened {
+  transform: translateX(0);
+  opacity: 1;
+}
+@media (max-width: 380px) {
+  .offcanvas__area {
+    width: 100%;
+  }
+}
+.offcanvas__wrapper {
+  position: relative;
+  padding: 25px 20px 145px;
+  z-index: 1;
+  min-height: 100%;
+}
+@media (max-width: 575px) {
+  .offcanvas__wrapper {
+    padding: 20px;
+  }
+}
+.offcanvas__close {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+@media (max-width: 575px) {
+  .offcanvas__close {
+    right: 20px;
+    top: 20px;
+  }
+}
+.offcanvas__close-btn {
+  display: inline-block;
+  font-size: 16px;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  background-color: #ECECEC;
+  color: #181818;
+}
+.offcanvas__close-btn:hover {
+  background-color: #ff5a3c;
+  border-color: transparent;
+  color: #fff;
+}
+.offcanvas__content {
+  padding-bottom: 120px;
+}
+.offcanvas__top {
+  margin-bottom: 30px;
+}
+.offcanvas__logo {
+  /* Add logo-specific styles if needed */
+}
+.offcanvas__category {
+  padding-bottom: 40px;
+}
+.tp-offcanvas-category-toggle {
+  /* Add button styles if needed */
+}
+.tp-category-mobile-menu {
+  /* Add menu styles if needed */
+}
+.tp-category-menu-content.active {
+  /* Add active state styles if needed */
+}
+.tp-main-menu-mobile {
+  /* Add menu styles if needed */
+}
+.offcanvas__btn {
+  /* Add button wrapper styles if needed */
+}
+.tp-btn-2.tp-btn-border-2 {
+  /* Add button styles if needed */
+}
+.offcanvas__bottom {
+  /* Add bottom section styles if needed */
+}
+.offcanvas__footer {
+  /* Add footer styles if needed */
+}
+.offcanvas__currency-wrapper {
+  /* Add currency wrapper styles if needed */
+}
+.offcanvas__currency-selected-currency {
+  /* Add selected currency styles if needed */
+}
+.offcanvas__currency-list {
+  /* Add currency list styles if needed */
+}
+.tp-currency-list.tp-currency-list-open {
+  /* Add open state styles if needed */
+}
+.offcanvas__select {
+  /* Add select styles if needed */
+}
+.offcanvas__lang {
+  /* Add language styles if needed */
+}
+.offcanvas__lang-img {
+  margin-right: 15px;
+}
+.offcanvas__lang-wrapper {
+  /* Add wrapper styles if needed */
+}
+.offcanvas__lang-selected-lang {
+  /* Add selected lang styles if needed */
+}
+.offcanvas__lang-list.tp-lang-list.tp-lang-list-open {
+  /* Add open state styles if needed */
+}
+.body-overlay {
+  /* Add overlay styles if needed */
+}
+.body-overlay.opened {
+  /* Add opened overlay styles if needed */
+} 
