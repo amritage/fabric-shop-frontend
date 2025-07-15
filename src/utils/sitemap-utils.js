@@ -12,7 +12,7 @@ export async function pingSearchEngines(sitemapUrl) {
     `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`,
     `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`,
   ];
-  const results = await Promise.allSettled(
+  await Promise.allSettled(
     searchEngines.map(async (url) => {
       try {
         const response = await fetch(url, { method: 'GET' });

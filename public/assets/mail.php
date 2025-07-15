@@ -73,9 +73,9 @@
 
         // Set the recipient email address.
 
-        // FIXME: Update this to your desired email address.
+        // TODO: Replace with your actual recipient email address before deploying to production.
 
-        $recipient = "mdsalim400@gmail.com";
+        $recipient = "your@email.com";
 
 
 
