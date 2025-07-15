@@ -5,11 +5,6 @@ import ProductItem from "../products/fashion/product-item";
 import ShopListItem from "./shop-list-item";
 import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
-// Remove sidebar filter imports since they won't be used in hidden sidebar
-// import PriceFilter from "./shop-filter/price-filter";
-// import StatusFilter from "./shop-filter/status-filter";
-// import ResetButton from "./shop-filter/reset-button";
-// import ShopSidebarFilters from "./ShopSidebarFilters";
 
 const ShopHiddenSidebarArea = ({
   all_products,

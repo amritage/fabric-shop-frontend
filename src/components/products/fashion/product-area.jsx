@@ -1,17 +1,6 @@
-/* eslint-disable no-unused-vars */
 'use client';
-/* import React, { useState } from 'react';
- */import ErrorMsg from '@/components/common/error-msg';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useGetProductsByTypeQuery } from '@/redux/features/productApi';
-import { TextShapeLine } from '@/svg';
-import ProductItem from './product-item';
-import { HomeTwoPrdLoader } from '@/components/loader';
+import ErrorMsg from '@/components/common/error-msg';
 import { useGetOffersQuery } from '@/redux/features/newProductApi';
-
-// tabs
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const tabs = ["All Collection", "Shoes", "Clothing", "Bags"];
 
 const ProductArea = () => {
   // Use the offer products API

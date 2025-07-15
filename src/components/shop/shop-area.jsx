@@ -34,9 +34,9 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
   const [selectedFilters, setSelectedFilters] = useState({});
 
   // Call all hooks unconditionally
-  const gsmQuery = useGetGsmUptoQuery(gsm);
-  const ozQuery = useGetOzUptoQuery(oz);
-  const quantityQuery = useGetQuantityUptoQuery(quantity);
+  const gsmQuery = useGetGsmUptoQuery(gsm, { skip: !gsm });
+  const ozQuery = useGetOzUptoQuery(oz, { skip: !oz });
+  const quantityQuery = useGetQuantityUptoQuery(quantity, { skip: !quantity });
   const purchasePriceQuery = useGetPurchasePriceUptoQuery(purchasePrice);
   const priceQuery = useGetPriceUptoQuery(minPrice);
   const allProductsQuery = useGetAllNewProductsQuery();
