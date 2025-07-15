@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Rating } from 'react-simple-star-rating';
@@ -49,35 +49,6 @@ const getImageUrl = (item) => {
   if (item.image1 && item.image1.startsWith('http')) return item.image1;
   if (item.image2 && item.image2.startsWith('http')) return item.image2;
   return '/assets/img/product/default-product-img.jpg';
-};
-
-// LazyBackground component for lazy loading background images
-const LazyBackground = ({ src, className = '', ...props }) => {
-  const ref = useRef();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={isVisible ? { backgroundImage: `url(${src})` } : {}}
-      {...props}
-    />
-  );
 };
 
 const WeeksFeatured = () => {
