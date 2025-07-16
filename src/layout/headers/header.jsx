@@ -54,8 +54,8 @@ const Header = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-xl-2 col-lg-2 col-md-4 col-6">
-                  <div className="logo">
-                    <Link href="/">
+                  <div className="logo d-flex align-items-center" style={{gap: '12px'}}>
+                    <Link href="/" className="d-flex align-items-center" style={{gap: '12px'}}>
                       <Image src={logo} alt="logo" width={120} height={40} priority />
                     </Link>
                   </div>

@@ -103,8 +103,8 @@ const HeaderTwo = ({ style_2 = false }) => {
               <div className="tp-mega-menu-wrapper p-relative">
                 <div className="row align-items-center">
                   <div className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
-                    <div className="logo">
-                      <Link href="/">
+                    <div className="logo d-flex align-items-center" style={{gap: '12px'}}>
+                      <Link href="/" className="d-flex align-items-center" style={{gap: '12px'}}>
                         <Image
                           src={logo}
                           alt="logo"

@@ -109,47 +109,15 @@ export default menu_data;
 export const mobile_menu = [
   {
     id: 1,
-    homes: true,
+    single_link: true,
     title: 'Home',
-    link: '/',
-    home_pages: [
-      {
-        img: home_1,
-        title: 'Electronics',
-        link: '/'
-      },
-      {
-        img: home_2,
-        title: 'Fashion',
-        link: '/home-2'
-      },
-      {
-        img: home_3,
-        title: 'Beauty',
-        link: '/home-3'
-      },
-      {
-        img: home_4,
-        title: 'Jewelry',
-        link: '/home-4'
-      }
-    ]
+    link: '/home-2',
   },
   {
     id: 2,
-    sub_menu: true,
+    single_link: true,
     title: 'Products',
     link: '/shop',
-    sub_menus: [
-      { title: 'Shop', link: '/shop' },
-      { title: 'Right Sidebar', link: '/shop-right-sidebar' },
-      { title: 'Hidden Sidebar', link: '/shop-hidden-sidebar' },
-      { title: 'Only Categories', link: '/shop-category' },
-      { title: 'Product Simple', link: '/product-details' },
-      { title: 'With Video', link: '/product-details-video' },
-      { title: 'With Countdown Timer', link: '/product-details-countdown' },
-      { title: 'Variations Swatches', link: '/product-details-swatches' },
-    ],
   },
   {
     id: 3,
@@ -161,18 +129,6 @@ export const mobile_menu = [
       { title: 'Wishlist', link: '/wishlist' },
       { title: 'Checkout', link: '/checkout' },
       { title: 'My account', link: '/profile' },
-    ],
-  },
-  {
-    id: 4,
-    sub_menu: true,
-    title: 'More Pages',
-    link: '/login',
-    sub_menus: [
-      { title: 'Login', link: '/login' },
-      { title: 'Register', link: '/register' },
-      { title: 'Forgot Password', link: '/forgot' },
-      { title: '404 Error', link: '/404' },
     ],
   },
   {

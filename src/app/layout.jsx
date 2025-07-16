@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
 }
 `}</style>
         {/* Preload critical CSS */}
-        <link rel="preload" href="/assets/css/font-awesome-pro.css" as="style" onLoad="this.rel='stylesheet'" />
+        <link rel="stylesheet" href="/assets/css/font-awesome-pro.css" />
         {/* Preload only the most critical font */}
         <link rel="preload" href="/assets/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Preload Jost variable fonts for faster text rendering */}
