@@ -134,3 +134,22 @@ input[type="number"] {
 .pagination ul.list-wrap li.disabled {
   display: none;
 }
+
+/* Fix SweetAlert2 button visibility everywhere */
+.swal2-popup .swal2-styled {
+  background-color: #3085d6 !important; /* SweetAlert2 default blue */
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border: none !important;
+}
+
+.swal2-popup .swal2-confirm {
+  background-color: #22c55e !important; /* your green */
+  color: #fff !important;
+}
+
+.swal2-popup .swal2-cancel {
+  background-color: #ef4444 !important; /* your red */
+  color: #fff !important;
+}
