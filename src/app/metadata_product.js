@@ -1,4 +1,4 @@
-const metadata = {
+const metadata_product = {
   // title: 'Amrita Global Enterprises – B2B Fabric Dealer',
   // description:
   //   'Amrita Global Enterprises is your trusted B2B fabric dealer—offering premium woven, knit and denim textiles in bulk at competitive wholesale rates, with fast delivery and expert support.',
@@ -18,4 +18,4 @@ const metadata = {
   // },
 };
 
-export default metadata; 
+export default metadata_product; 
